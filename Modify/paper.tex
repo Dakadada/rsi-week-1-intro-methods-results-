@@ -1,0 +1,99 @@
+% This is paper.tex 
+% Write your paper HERE.
+% READ THE EXISTING PAPER BEFORE DELETING IT.
+Welcome to the RSI LaTeX template! If you have any questions about LaTeX, please direct them to your first week TAs. If you have questions about the template, please direct them to your technical manager.
+
+\section{Introduction}
+When you're writing a paragraph and you want a new paragraph, don't write a double slash (\verb|\\|). Instead, use a double enter. Here is the difference: this is what happens when you use a double backslash.\\
+This is what happens when you use a double enter. 
+
+\anamaria{Now we have a new paragraph, not just a new line. This italicized and highlighted text is what happens when you add a comment with your name command}. 
+
+I have updated the template so that the theorem and definition numbering and style has been standardized. The style works as follows. We have ``theorem-type'' which includes italicized text:
+\begin{theorem}
+    This is a theorem. Theorem text goes here.\label{my first theorem}
+\end{theorem}
+If it is a named theorem, or if you wish to cite the theorem, you do that in square brackets after \texttt{\textbackslash begin\{theorem\}[like this]}
+\begin{theorem}[Sendova's Theorem \cite{Aguilar21}] This is a named theorem and should be referenced as such.
+\end{theorem}
+If you are citing a non-named theorem from a paper, i.e. most theorems, there is no need to cite the theorem number from the paper. Just give the citation number. Unless multiple papers are cited at different points in the sentence, it suffices to put the citation at the end of the sentence \cite{Breen22}. On the other hand, Brualdi says that the sky is blue \cite{Brualdi10}, and later Constantine showed that there are also clouds in the sky \cite{Constantine85}. There is no need to provide a page number either. Occasionally, however, you may wish to reference the author. For instance, in 2021, Aguilar proved the following influential theorem. We generalize the following theorem to the complex case.
+\begin{theorem}[\cite{Aguilar21}] This is a theorem or result from another paper.
+\end{theorem}
+\begin{proof}
+    To insert a proof, write \texttt{\textbackslash begin\{proof\}} then write your proof. Writing \texttt{\textbackslash end\{proof\}} will put a black square and conclude your proof.
+\end{proof}
+
+\section{Preliminaries}
+Notice that now, since we're in a different section, the first number changes. 
+\begin{lemma}
+    This is how the numbering works. It doesn't changed based on what type of theorem-like thing you're writing.
+\end{lemma}
+\begin{corollary}[Corollary to \Cref{my first theorem}]
+ This is a corollary to my first theorem.
+\end{corollary}
+
+Now if you want to have a definition, notice that it will not italicize the text:
+\begin{definition}[Environment]
+    We have different \textit{environments} in latex. We denote definitions without italics that way you can choose to italicize the word that you are defining.
+\end{definition}
+
+If you've had to define some things and insert text between the statement of a lemma and a proof, you will want to specify what you're proving. You can do that here: 
+\begin{proof}[Proof of \Cref{my first theorem}] Then you write your proof. To change what it says at the beginning of the proof, write \texttt{\textbackslash begin\{proof\}[you can change this part]} then write \texttt{\textbackslash end\{proof\}}.
+\end{proof}
+
+One of the only things that won't be numbered is remarks:
+\begin{remark*}
+    Notice that this doesn't have a number. You achieve this by adding a star (an asterisk), i.e. writing\\   
+    \texttt{\textbackslash begin\{remark*\}some text\textbackslash end\{remark*\}}
+\end{remark*}
+We also number examples.
+\begin{example}
+    This example is numbered.
+\end{example}
+
+\subsection{All of the possible environments}
+Here are all other environments we've defined:
+
+\begin{theorem}[theorem name]
+    This is a theorem.
+\end{theorem}
+\begin{corollary}
+    This is a corollary.
+\end{corollary}
+\begin{lemma}
+    This is a lemma.
+\end{lemma}
+\begin{prop}
+    This is a prop.
+\end{prop}
+\begin{claim}
+    This is a claim.
+\end{claim}
+\begin{conjecture}
+    This is a conjecture.
+\end{conjecture}
+\begin{definition}
+    This is a definition.
+\end{definition}
+\begin{example}
+    This is an example.
+\end{example}
+\begin{remark*}
+    There is rarely an instance in which a remark should be numbered. If you must reference a remark later, then you can number it but most times it should not be.
+\end{remark*}
+\begin{remark}
+    This is a numbered remark. To make this, omit the star.
+\end{remark}
+\section{Good Things to Know}
+\subsection{Hyperlinks, Cross-references, and Labels}
+Sometimes, you have to reference things in your paper like \Cref{my first theorem}. We tell LaTeX where things are with labels. If I write \texttt{\textbackslash label\{mylabel\}} after 
+\begin{equation}
+    \text{my beautiful = equation},\label{mylabel}
+\end{equation}
+we can link to the ``$(1)$'' using \texttt{\textbackslash Cref}. As seen in \Cref{mylabel}, we can create a reference by writing \texttt{\textbackslash Cref\{mylabel\}}. 
+
+You should use \texttt{\textbackslash href} when \href{https://www.cee.org/programs/research-science-institute}{linking} to \href{https://mit.edu/}{external} \href{https://mitadmissions.org/blogs/entry/the-holy-grail-of-hacks-returns/}{websites}. 
+\subsubsection{``Subsubsections''}
+They exist. \texttt{\textasciigrave\textasciigrave quoting\textquotesingle\textquotesingle} should be done with double backticks and double apostrophes. ``Otherwise,'' they look "strange".
+\subsection{Markup and Commenting}
+It's sometimes useful to \hl{highlight}, \st{strikethrough}, and \ul{underline} in the paper review process. You can also go to the bottom of \texttt{macros.tex} and modify our existing annotation command. \yourname{Then, you can comment like this.}

@@ -1,0 +1,93 @@
+% RSI paper template
+
+% This is main.tex
+
+% DO NOT MODIFY this file, except to 
+%  1. Add additional packages or
+%  2. Add macros,
+% if you know what you are doing or are following directions of one of
+% the technical staff.
+
+\documentclass[12pt,titlepage]{article}
+
+%Font/Language
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+%Math!
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+%Figures/Graphics
+\usepackage{xcolor} 
+\usepackage{graphicx}
+\usepackage{tikz}
+%Typography
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{silence}
+\WarningFilter{latex}{Command \showhyphens has changed} %If you use a local installation of LaTeX with an up-to-date installation of microtype, you can remove this warning silencer. Future TMs: remove this silencer once Overleaf stops complaining without it.
+\usepackage[nopatch=footnote]{microtype}
+\usepackage{indentfirst}
+\usepackage{soul}
+%Bibliography
+\usepackage[numbers]{natbib}
+%Hyperlinks
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+\input{NoModifying/macros}
+
+\frenchspacing
+\doublespacing
+
+%Theorem Environments
+\usepackage{float}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\renewcommand\qedsymbol{\footnotesize$\blacksquare$} %remove this if you want a non-filled-in square
+
+% Equation Spacing
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\begin{document}
+
+\include{Modify/cover}
+
+\begin{singlespace}
+\maketitle
+\end{singlespace}
+
+\begin{abstract}
+\begin{singlespace}
+\input{Modify/abstract}
+\end{singlespace}
+\vspace{1in}
+\begin{center}\textbf{Summary}\end{center}
+\begin{singlespace}
+\input{Modify/summary}
+\end{singlespace}
+\end{abstract}
+
+\include{Modify/paper}
+
+\begin{singlespace}
+\bibliographystyle{style}
+\bibliography{Modify/biblio}
+\end{singlespace}
+
+\include{Modify/appa}
+
+\end{document}
